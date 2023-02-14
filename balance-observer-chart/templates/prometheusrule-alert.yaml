@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    role: alert-rules
+  name: {{ include "balance-observer-chart.fullname" . }}-health
+spec:
+  groups:
+  - name: AccountBalanceBelowDesired
+    rules:
+    - alert: AccountBalanceBelowDesired
+      expr: (account_balance_current_tokens - account_balance_desired_tokens) < 0
+

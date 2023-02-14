@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "balance-observer-chart.fullname" . }}
+  labels:
+    {{- include "balance-observer-chart.labels" . | nindent 4 }}
+    #release: k8s-prom-stack-release
+spec:
+  selector:
+    matchLabels:
+      {{- include "balance-observer-chart.labels" . | nindent 6 }}
+  endpoints:
+  - path: /metrics
+    port: http
+  namespaceSelector:
+      matchNames:
+      - default

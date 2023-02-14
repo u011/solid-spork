@@ -1,0 +1,11 @@
+prometheus:
+  ## To discover custom service monitor
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+
+defaultRules:
+  ## Add custom alert
+  additionalRuleLabels: 
+    role: alert-rules
+    

@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    role: alert-rules
+  name: {{ include "balance-observer-chart.fullname" . }}-up
+spec:
+  groups:
+  - name: BalanceObserverDown
+    rules:
+    - alert: BalanceObserverDown
+      expr: up{service='{{ include "balance-observer-chart.fullname" . }}'} == 0
+

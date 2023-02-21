@@ -25,6 +25,9 @@ docker build -t balance-observer .
 ## Load image to minikube (to be change for organisation repository)
 minikube image load balance-observer
 
-## Install monitoring app
-helm install balance-observer-chart balance-observer-chart
+## Create or choose a namespace
+KUBE_NAMESPACE='balance-observer'
+kubectl create namespace $KUBE_NAMESPACE 
 
+## Install monitoring app
+helm install balance-observer-chart balance-observer-chart --namespace $KUBE_NAMESPACE

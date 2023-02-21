@@ -10,5 +10,7 @@ RUN apk add --no-cache --virtual .gyp \
 COPY . .
 RUN yarn run build
 EXPOSE 8080
+USER node
 CMD ["yarn", "start"]
+
 

@@ -25,10 +25,10 @@ Provides:
 ## And docker engine as a minikube driver
 #minikube config set driver docker
 
-## Run minikube with kubernetes 1.23.0 and 6GB memory for kube-prometheus-stack
+## Run minikube with kubernetes 1.25.0 and 6GB memory for kube-prometheus-stack
 ## All parameters are from https://github.com/prometheus-operator/kube-prometheus#minikube
 #minikube delete
-minikube start --kubernetes-version=v1.23.0 --memory=6g --bootstrapper=kubeadm --extra-config=kubelet.authentication-token-webhook=true --extra-config=kubelet.authorization-mode=Webhook --extra-config=scheduler.bind-address=0.0.0.0 --extra-config=controller-manager.bind-address=0.0.0.0
+minikube start --kubernetes-version=v1.25.0 --memory=6g --bootstrapper=kubeadm --extra-config=kubelet.authentication-token-webhook=true --extra-config=kubelet.authorization-mode=Webhook --extra-config=scheduler.bind-address=0.0.0.0 --extra-config=controller-manager.bind-address=0.0.0.0
 
 ## Install external prometheus stack
 #minikube addons disable metrics-server
